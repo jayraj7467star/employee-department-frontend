@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Cards</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f5f7fa;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #2c3e50;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      padding: 1.2rem;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      margin: 0.3rem 0;
+      color: #34495e;
+    }
+
+    .card p {
+      margin: 0.2rem 0;
+      font-size: 0.95rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Our Amazing Team</h1>
+
+  <div class="card-container">
+    <div class="card">
+      <img src="https://ui-avatars.com/api/?name=Alice+Smith&background=0D8ABC&color=fff&size=128" alt="Alice Smith" />
+      <h3>Alice Smith</h3>
+      <p><strong>Role:</strong> Recruiter</p>
+      <p><strong>Location:</strong> Building A</p>
+    </div>
+
+    <div class="card">
+      <img src="https://ui-avatars.com/api/?name=Bob+Johnson&background=FF5733&color=fff&size=128" alt="Bob Johnson" />
+      <h3>Bob Johnson</h3>
+      <p><strong>Role:</strong> Software Engineer</p>
+      <p><strong>Location:</strong> Building B</p>
+    </div>
+
+    <div class="card">
+      <img src="https://ui-avatars.com/api/?name=Diana+Prince&background=8E44AD&color=fff&size=128" alt="Diana Prince" />
+      <h3>Diana Prince</h3>
+      <p><strong>Role:</strong> System Architect</p>
+      <p><strong>Location:</strong> Building B</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<div class="container mt-4">
+    <h2 class="mb-4 text-primary">Employee Detail</h2>
+  
+    <div *ngIf="employee; else notFound">
+      <div class="card shadow-sm border-0 mb-4">
+        <div class="card-body">
+          <div *ngIf="!editMode">
+            <h4 class="card-title">{{ employee.name }}</h4>
+            <p class="card-text">
+              <strong>Email:</strong> {{ employee.email }}<br />
+              <strong>Position:</strong> {{ employee.position }}<br />
+              <strong>Salary:</strong> ₹{{ employee.salary | number:'1.0-0' }}<br />
+              <strong>Department:</strong> {{ employee.departmentName }}
+            </p>
+  
+            <button class="btn btn-outline-primary me-2" (click)="enableEdit()">
+              Edit
+            </button>
+            <button class="btn btn-outline-danger" (click)="deleteEmployee()">
+              Delete
+            </button>
+          </div>
+  
+          <form *ngIf="editMode" class="mt-3">
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input [(ngModel)]="employee.name" name="name" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input [(ngModel)]="employee.email" name="email" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Position</label>
+              <input [(ngModel)]="employee.position" name="position" class="form-control" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Salary</label>
+              <input type="number" [(ngModel)]="employee.salary" name="salary" class="form-control" />
+            </div>
+            <div class="d-flex justify-content-start gap-2">
+              <button type="button" class="btn btn-success" (click)="saveChanges()">
+                Save
+              </button>
+              <button type="button" class="btn btn-secondary" (click)="editMode = false">
+                Cancel
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #notFound>
+      <div class="alert alert-warning">Employee not found</div>
+    </ng-template>
+  
+    <div *ngIf="message" class="alert alert-info mt-3">
+      {{ message }}
+    </div>
+  </div>
+  

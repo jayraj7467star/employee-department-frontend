@@ -1,0 +1,55 @@
+<div class="container mt-5">
+    <h2 class="text-center text-primary mb-4">Search Employees by Department</h2>
+  
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-6">
+        <div class="input-group">
+          <input
+            [(ngModel)]="departmentId"
+            type="text"
+            class="form-control"
+            placeholder="Enter Department ID (e.g., dept01)"
+          />
+          <button class="btn btn-primary" (click)="searchEmployees()">
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Error or empty message -->
+    <div *ngIf="error" class="alert alert-danger text-center w-75 mx-auto">
+      {{ error }}
+    </div>
+  
+    <!-- Results table -->
+    <div *ngIf="employees.length > 0" class="table-responsive">
+      <table class="table table-bordered table-hover align-middle text-center">
+        <thead class="table-dark">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Position</th>
+            <th>Salary</th>
+            <th>Department</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees">
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.email }}</td>
+            <td>{{ employee.position }}</td>
+            <td>₹{{ employee.salary | number:'1.0-0' }}</td>
+            <td>{{ employee.departmentName }}</td>
+            <td>
+              <button class="btn btn-outline-info btn-sm" (click)="goToEmployee(employee)">
+                View
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
